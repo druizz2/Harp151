@@ -1,0 +1,14 @@
+import random 
+
+
+filename = "sowpods.txt" # referencing file 
+
+def word_generator():
+    file = filename
+    f = open(filename, "r", encoding="utf8")
+    words = f.readlines() # reading the file
+    f.close()
+
+    return random.choice(words).strip()
+
+word_generator()
