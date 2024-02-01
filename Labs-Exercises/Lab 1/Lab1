@@ -1,0 +1,9 @@
+# Question 1
+
+list_one = ["apple", "rice", "gargoyle", "pandas", "sheep", "raptor"]
+
+def returnLongestWord(list):
+    pass
+
+
+# Question 2
