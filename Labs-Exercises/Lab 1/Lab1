@@ -4,7 +4,7 @@ list_one = ["apple", "rice", "gargoyle", "pandas", "sheep", "raptor"]
 
 def returnLongestWord(list):
     for i in list:
-        print(i)
+        pass
 returnLongestWord(list_one)
 
 # Question 2
