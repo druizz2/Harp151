@@ -1,10 +1,59 @@
+import random
 # Question 1
 
 list_one = ["apple", "rice", "gargoyle", "pandas", "sheep", "raptor"]
 
 def returnLongestWord(list):
-    for i in list:
-        pass
+    index = list[0]     # set the index variable equal to the first element of the list as a starting point
+    for i in list:      # loop through the list
+        if len(i) > len(index): # comparing the length of each element in the list to the index var. 
+            index = i      # if TRUE, set i as the new index. will check this for each element until loop terminates. 
+    return index 
+
 returnLongestWord(list_one)
 
 # Question 2
+
+filename = "sowpods.txt"
+
+def shortestWordDictionary():
+    f = open(filename, "r", encoding = "utf8")
+    words = f.readlines()
+    f.close()
+    for i in range(1, 10):
+        print(random.choice(words).strip)
+shortestWordDictionary()
+# Question 3 
+def oddEvenName():
+    input("Enter your first, middle, and last name: ")
+
+# Question 4
+
+# Below is the gameplay class. I created a parent Player class, and the following child classes: mage, fighter, summoner.
+# class Player:
+#     def getHealth(self, hp):
+#         self.hp = hp
+#         return hp
+    
+#     def attack(self, damage, enemyShield, enemyHealth):
+#         self.damage = damage
+#         self.enemyShield = enemyShield
+#         self.enemyHealth = enemyHealth
+#         return (enemyHealth + enemyShield) - damage
+    
+#     def move(self, x, y):
+#         self.x = x 
+#         self.y = y
+#         moveRight = x + 1
+#         moveLeft = x -1
+#         moveUp = y + 1
+#         moveDown = y - 1
+#         print(moveRight)
+#         print(moveLeft)
+#         print(moveDown)
+#         print(moveUp)
+#     move(1, 3 ,5)
+# class Mage(Player):
+#     pass
+# Question 5
+
