@@ -1,4 +1,7 @@
 import random
+
+# resources used: https://www.learnbyexample.org/python-lambda-function/ | https://towardsdatascience.com/six-tricks-you-should-know-about-python-dictionary-41c86570d282 | https://www.geeksforgeeks.org/python-assign-values-to-initialized-dictionary-keys/ | https://www.digitalocean.com/community/tutorials/python-remove-spaces-from-string | https://stackoverflow.com/questions/160930/how-do-i-check-if-an-integer-is-even-or-odd | https://www.w3schools.com/python/ref_string_split.asp | https://www.w3schools.com/python/ref_string_strip.asp
+
 # Question 1
 
 list_one = ["apple", "rice", "gargoyle", "pandas", "sheep", "raptor"]
@@ -10,50 +13,112 @@ def returnLongestWord(list):
             index = i      # if TRUE, set i as the new index. will check this for each element until loop terminates. 
     return index 
 
-returnLongestWord(list_one)
+# returnLongestWord(list_one)
 
 # Question 2
 
-filename = "sowpods.txt"
+filename = "/Users/daniel/Documents/GitHub/Harp151/Labs-Exercises/Lab 1/sowpods.txt"
 
 def shortestWordDictionary():
     f = open(filename, "r", encoding = "utf8")
     words = f.readlines()
-    f.close()
-    for i in range(1, 10):
-        print(random.choice(words).strip)
-shortestWordDictionary()
+    f.close() 
+    wordsDict = {}
+    for i in range(10):
+        randomWords = random.choice(words).strip()
+        valueLength = len(randomWords)
+        wordsDict[randomWords] = valueLength
+    print(wordsDict)
+    
+    shortestWord = min(wordsDict, key = lambda x: len(x))
+    return shortestWord
+
+# shortestWordDictionary()        
+
 # Question 3 
 def oddEvenName():
-    input("Enter your first, middle, and last name: ")
-
+    name = input("Enter your name: ")
+    nameString = name.strip().split()
+    if len(nameString) % 2 == 0:
+        return True
+    else:
+        return False
+# oddEvenName()
 # Question 4
 
-# Below is the gameplay class. I created a parent Player class, and the following child classes: mage, fighter, summoner.
-# class Player:
-#     def getHealth(self, hp):
-#         self.hp = hp
-#         return hp
-    
-#     def attack(self, damage, enemyShield, enemyHealth):
-#         self.damage = damage
-#         self.enemyShield = enemyShield
-#         self.enemyHealth = enemyHealth
-#         return (enemyHealth + enemyShield) - damage
-    
-#     def move(self, x, y):
-#         self.x = x 
-#         self.y = y
-#         moveRight = x + 1
-#         moveLeft = x -1
-#         moveUp = y + 1
-#         moveDown = y - 1
-#         print(moveRight)
-#         print(moveLeft)
-#         print(moveDown)
-#         print(moveUp)
-#     move(1, 3 ,5)
-# class Mage(Player):
-#     pass
-# Question 5
+class Entity:
+    def __init__(self, name, hp=100, shield=20, level=1):
+        self.name = name
+        self.hp = hp
+        self.shield = shield
+        self.level = level
 
+    
+    def attack(self, damage, enemyShield, enemyHealth):
+        self.damage = damage
+        self.enemyShield = enemyShield
+        self.enemyHealth = enemyHealth
+
+    def move(self, dx: int, dy: int) -> None:
+        self.x += dx
+        self.y += dy
+
+    def heal(self):
+        if self.hp == 100:
+            print("You are at full health.")
+        else:
+            self.hp += 7.5
+            print(f"You healed yourself! Health: {self.hp}")
+
+class Swordsman(Entity):
+    def __init__(self, name, hp=200, shield=50, level=1, weapon = "Sword"):
+        super().__init__(name, hp, shield, level)
+        self.weapon = weapon
+    
+    def attack(self, damage, enemyShield, enemyHealth):
+        print( f'{self.name} swung a {self.weapon} at the enemy, dealing {abs(damage - (enemyShield + enemyHealth))} damage!')
+
+class Mage(Entity):
+    def __init__(self, name, hp=200, shield=50, level=1, weapon = "Spell Tome"):
+        super().__init__(name, hp, shield, level)
+        self.weapon = weapon
+
+    def attack(self, damage, enemyShield, enemyHealth):
+        print( f'{self.name} used their {self.weapon} to throw a fire ball at the enemy, dealing {abs(damage - (enemyShield + enemyHealth))} damage!')
+    
+# Question 5
+class Hangman:
+    def create_and_display_board():
+        letters = ["a", "b", "c", "d", "e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        gameState = True
+        wordChoices = ["Snow", "Five", "Screen", "Watch", "Laptop", "Phone", "Road", "Mountain", "Tree", "Rain", "Steps", "Roof", "Fan"]
+        randomWordChoice = random.choice(wordChoices)
+        print(randomWordChoice)
+        gameCount = len(randomWordChoice)
+        gameState = True
+        incorrectLetterGuesses = 0
+        correctLetterGuesses = 0  # place holder variable for actual 
+        # Here the board needs to be created
+        while gameState:
+            guess = str(input("Type in a word: "))
+            if guess == randomWordChoice:
+                print("Your guessed the correct word!")
+                    # Board completely fills 
+            else: 
+                for i in letters:
+                        if i in randomWordChoice:
+                             correctLetterGuesses += 1
+                             if correctLetterGuesses == gameCount:
+                                  print("You won!")
+                                  gameState = False
+
+                        else:
+                            incorrectLetterGuesses += 1
+                           
+                            
+                  
+                    # Hangman gets drawn here
+    create_and_display_board()    
+
+# Question 6
+# 
