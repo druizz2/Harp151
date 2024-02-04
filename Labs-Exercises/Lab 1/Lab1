@@ -1,6 +1,6 @@
 import random
 
-# resources used: https://www.learnbyexample.org/python-lambda-function/ | https://towardsdatascience.com/six-tricks-you-should-know-about-python-dictionary-41c86570d282 | https://www.geeksforgeeks.org/python-assign-values-to-initialized-dictionary-keys/ | https://www.digitalocean.com/community/tutorials/python-remove-spaces-from-string | https://stackoverflow.com/questions/160930/how-do-i-check-if-an-integer-is-even-or-odd | https://www.w3schools.com/python/ref_string_split.asp | https://www.w3schools.com/python/ref_string_strip.asp
+# resources used: https://www.learnbyexample.org/python-lambda-function/ | https://towardsdatascience.com/six-tricks-you-should-know-about-python-dictionary-41c86570d282 | https://www.geeksforgeeks.org/python-assign-values-to-initialized-dictionary-keys/ | https://www.digitalocean.com/community/tutorials/python-remove-spaces-from-string | https://stackoverflow.com/questions/160930/how-do-i-check-if-an-integer-is-even-or-odd | https://www.w3schools.com/python/ref_string_split.asp | https://www.w3schools.com/python/ref_string_strip.asp | https://codereview.stackexchange.com/questions/95997/simple-game-of-hangman
 
 # Question 1
 
@@ -13,7 +13,7 @@ def returnLongestWord(list):
             index = i      # if TRUE, set i as the new index. will check this for each element until loop terminates. 
     return index 
 
-# returnLongestWord(list_one)
+returnLongestWord(list_one)
 
 # Question 2
 
@@ -33,9 +33,10 @@ def shortestWordDictionary():
     shortestWord = min(wordsDict, key = lambda x: len(x))
     return shortestWord
 
-# shortestWordDictionary()        
+shortestWordDictionary()        
 
 # Question 3 
+
 def oddEvenName():
     name = input("Enter your name: ")
     nameString = name.strip().split()
@@ -43,7 +44,8 @@ def oddEvenName():
         return True
     else:
         return False
-# oddEvenName()
+oddEvenName()
+
 # Question 4
 
 class Entity:
@@ -63,12 +65,12 @@ class Entity:
         self.x += dx
         self.y += dy
 
+    def getHealth(self):
+        return self.hp
+
     def heal(self):
-        if self.hp == 100:
-            print("You are at full health.")
-        else:
-            self.hp += 7.5
-            print(f"You healed yourself! Health: {self.hp}")
+        currentHealth = self.getHealth()
+        self.hp = min(currentHealth + 25, 100)
 
 class Swordsman(Entity):
     def __init__(self, name, hp=200, shield=50, level=1, weapon = "Sword"):
@@ -79,46 +81,92 @@ class Swordsman(Entity):
         print( f'{self.name} swung a {self.weapon} at the enemy, dealing {abs(damage - (enemyShield + enemyHealth))} damage!')
 
 class Mage(Entity):
-    def __init__(self, name, hp=200, shield=50, level=1, weapon = "Spell Tome"):
+    def __init__(self, name, hp=100, shield=50, level=1, weapon = "Spell Tome"):
         super().__init__(name, hp, shield, level)
         self.weapon = weapon
 
     def attack(self, damage, enemyShield, enemyHealth):
         print( f'{self.name} used their {self.weapon} to throw a fire ball at the enemy, dealing {abs(damage - (enemyShield + enemyHealth))} damage!')
-    
-# Question 5
-class Hangman:
-    def create_and_display_board():
-        letters = ["a", "b", "c", "d", "e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-        gameState = True
-        wordChoices = ["Snow", "Five", "Screen", "Watch", "Laptop", "Phone", "Road", "Mountain", "Tree", "Rain", "Steps", "Roof", "Fan"]
-        randomWordChoice = random.choice(wordChoices)
-        print(randomWordChoice)
-        gameCount = len(randomWordChoice)
-        gameState = True
-        incorrectLetterGuesses = 0
-        correctLetterGuesses = 0  # place holder variable for actual 
-        # Here the board needs to be created
-        while gameState:
-            guess = str(input("Type in a word: "))
-            if guess == randomWordChoice:
-                print("Your guessed the correct word!")
-                    # Board completely fills 
-            else: 
-                for i in letters:
-                        if i in randomWordChoice:
-                             correctLetterGuesses += 1
-                             if correctLetterGuesses == gameCount:
-                                  print("You won!")
-                                  gameState = False
 
-                        else:
-                            incorrectLetterGuesses += 1
-                           
-                            
-                  
-                    # Hangman gets drawn here
-    create_and_display_board()    
+
+# Question 5
+
+class Hangman:
+    
+    def main(self):
+        # pictures for each incorrect guess
+        pictureHangman = (
+                     """
+                     -----
+                     |   |
+                     |   0
+                     |
+                     |
+                     |
+                     |
+                     |
+                     |
+                     --------
+                     """,
+                     """
+                     -----
+                     |   |
+                     |   0
+                     | /-+-\ 
+                     |   | 
+                     |   | 
+                     |
+                     |
+                     |
+                     --------
+                     """,
+                     """
+                     -----
+    G                |   |
+    A                |   0
+    M                | /-+-\ 
+    E                |   | 
+                     |   | 
+    O                |  | | 
+    V                |  | | 
+    E                |
+    R                --------
+                    """)
+        gameState = True    # for while loop
+        wordChoices = ["Snow", "Five", "Screen", "Watch", "Laptop", "Phone", "Road", "Mountain", "Tree", "Rain", "Steps", "Roof", "Fan"]    # random word choices
+        randomWordChoice = random.choice(wordChoices)   # selects a random string element from the list
+        incorrectLetterGuesses = 0  # counter variable; will increment as number of incorrect letter guessses increases
+        
+        while gameState:    
+            guess = str(input("Type in a word: "))  # input for guess
+            if guess == randomWordChoice:
+                print("\nYou guessed the correct word!\n")
+                inp = input("Would you like to play again? Y/N\n")  # input to see if player wants to play again 
+                if inp == "Y":  
+                    self.main() # if yes, recursively call the function to start the game again
+                else:
+                    break   # if no, end game
+    
+            else: 
+                incorrectLetterGuesses +=1  # increment counter variable
+                if incorrectLetterGuesses == 3: # check to see if the user has gone through all three attempts
+                    print(f"Incorrect! You've run out of attempts! The word is {randomWordChoice}.")    # if so, reveal word choice 
+                    print(pictureHangman[2])    # print corresponding picture
+                    break   # end game
+                else:
+                    print(f"Incorrect, try again! You have {3-incorrectLetterGuesses} attempts remaining!") # prints number of guesses remaining for user
+                    print(pictureHangman[abs((len(pictureHangman)-2) - incorrectLetterGuesses)])    # prints corresponding picture depending on number of guesses left
+              
+                                              
+o = Hangman()
+o.main()
 
 # Question 6
-# 
+# Overall, I'd rate my confidence level between 6.5-7. I would say my biggest issue is that, at times, I am forgetful of certain concepts, details, etc. For example,
+# on question 3 in this lab I had completely forgetten about the modulo operator. Because of that, I spent lots of time trying to figure out how to do the queston, until 
+# I had remembered it. Similarly, I also at times forget specifc nuances about certain data structures in python. Additionally, I also (at times) forget about built-in methods/functions
+# that python has for it's data structures (i.e for dictionaries .get, .keys, etc). I would say I am comfortable with OOP and it's concepts, as well as 
+# things like conditionals, loops, input, recursion, etc. For next week, maybe I would like to review more complex implementations of using user input, potentially wokring with APIs,
+# using more packages for building specific types of programs (i.e pygame for gamedev), or introducing web app dev with python. Also, maybe Dr. Gibson can review more complex ideas
+# of  data structures (dictionaries, tuples, etc), how to manipulate them, and create a complex implementation of them in a program we make. Additionally,maybe Dr. Gibson can explore things like making simple 
+# ML models using packages like sckitlearn. 
