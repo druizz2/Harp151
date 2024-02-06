@@ -143,7 +143,7 @@ class Hangman:
                 print("\nYou guessed the correct word!\n")
                 inp = input("Would you like to play again? Y/N\n")  # input to see if player wants to play again 
                 if inp == "Y":  
-                    self.main() # if yes, recursively call the function to start the game again
+                    self.main() # if yes, call the function to start the game again
                 else:
                     break   # if no, end game
     

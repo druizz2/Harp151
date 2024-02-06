@@ -1,0 +1,5 @@
+import import_ipynb
+import function
+
+addTwo(3, 5)
+addThree(3,5,5)
