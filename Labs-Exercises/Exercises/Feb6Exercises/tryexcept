@@ -19,3 +19,5 @@ def gen_username():
 
 gen_username()
 
+# I definetly think introducing the try & except concept was very useful.
+# It makes code more readable, and can alow for easier error testing.
