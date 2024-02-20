@@ -9,4 +9,4 @@ url = f"https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP&HISP=2&f
 census_data = requests.get(url)
 json_file = census_data.json()
 
-json_file
+print(json_file)
