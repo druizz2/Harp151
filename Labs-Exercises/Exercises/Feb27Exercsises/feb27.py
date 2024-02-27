@@ -1,6 +1,8 @@
 import requests 
 import json
+import spotipy
 from base64 import b64encode
+from spotipy.oauth2 import SpotifyClientCredentials
 
 # OAUTH PARTS
 # Special User ID -> Will have a client ID and a secret client code, pass both to the server
@@ -39,6 +41,19 @@ headers = {     # have to call every time run API
 response = requests.get(url, headers=headers)
 
 data = response.json()
-print(json.dumps(data))
+# print(json.dumps(data))
 
+# Spotipy
+bear_uri = 'spotify:artist:2ifvIECHAlEgPMBuBOJ0lG'
 
+credentials = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
+spotify = spotipy.Spotify(client_credentials_manager=credentials)
+
+results = spotify.artist_albums(bear_uri, album_type='album')
+albums = results['items']
+while results['next']:
+    results = spotify.next(results)
+    albums.extend(results['items'])
+
+for album in albums:
+    print(album['name'])
