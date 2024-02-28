@@ -5,9 +5,10 @@ endpoint = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
 def get_definition():
     word = input("Enter a word: ")
-    word_def = (requests.get(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}")).json
-    print(word_def)
-def get_pronunciation(word):
+    word_request = requests.get(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}").json()
+    print(json.dumps(word_request))
+   
+def get_pronunciation():
     pass
-print("test")
+
 get_definition()
