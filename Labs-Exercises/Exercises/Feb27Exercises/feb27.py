@@ -1,4 +1,4 @@
-import requests 
+import requests
 import json
 import spotipy
 from base64 import b64encode
