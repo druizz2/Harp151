@@ -38,6 +38,3 @@ class DictionaryAPI:
             print("Index Error. Unable to retrieve the audio link of the word. ")
         except KeyError:
             print("Key Error. Try entering a different word. ")
-
-    def play_mp3(link):
-        playsound(link)
