@@ -1,6 +1,6 @@
 import requests
 import json
-
+import playsound
 
 class DictionaryAPI:
     endpoint = "https://api.dictionaryapi.dev/api/v2/entries/en/"
@@ -14,7 +14,7 @@ class DictionaryAPI:
         except IndexError:
             print("Index Error. Unable to retrieve the definition. ")
         except KeyError:
-            print("Key Error. Try entering again. ")
+            print("Key Error. Try entering a different word. ")
             
             
     def get_pronunciation():
@@ -26,7 +26,7 @@ class DictionaryAPI:
         except IndexError:
             print("Index Error. Unable to retrieve the pronunciation. ")
         except KeyError:
-            print("Key Error. Try entering again. ")
+            print("Key Error. Try entering a different word. ")
 
     def get_audio_link():
         try:
@@ -37,4 +37,7 @@ class DictionaryAPI:
         except IndexError:
             print("Index Error. Unable to retrieve the audio link of the word. ")
         except KeyError:
-            print("Key Error. Try entering again. ")
+            print("Key Error. Try entering a different word. ")
+
+    def play_mp3(link):
+        playsound(link)
