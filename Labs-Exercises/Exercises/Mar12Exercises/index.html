@@ -1,0 +1,185 @@
+<!DOCTYPE html> <!--always include this, tells the browser what kind of HTML you're using-->
+<html lang="en">
+  <head> 
+    <meta name="description" content="HTML demo by Dr. Gibson">
+    <meta name="keywords" content="HTML tutorial, web design, Binghamton Codes!">
+    <title>Introduction to HTML</title> <!-- this will appear in the browser tab-->
+    <link rel="stylesheet" type="text/css" href="FILENAME"/>
+  </head>
+
+    <body>
+
+    <h1>Welcome to HTML Basics!</h1>
+      <div class ="about">
+         <p class="big-text">My name is <strong>Dr. Chelsea Gibson </strong>. I'm a historian-turned-coder.</p>
+         <p>Contact info</p>
+            <strong>Email</strong>: <a href="mailto:chelsea.gibson@binghamton.edu">cgibson2@binghamton.edu</a><br/>
+            <strong>Twitter</strong>: <a href="https://twitter.com/gibsoche">@gibsoche</a><br>
+            <b>Github</b>: <a href="github.com">github.com/druiz2</a>
+          </div>
+    
+    <div id="special"> This division has a special ID on it</div>
+    
+  
+        <hr> <!--horizontal rule, creates a thematic break, or a line break-->
+    <!--if you ever want just sample text, you can type in "lorem" and click tab to autofil some latin-->
+    <!--learn more here: https://www.makeuseof.com/tag/lorem-ipsum-case-wondering/-->
+
+    <p>In this lab series you will learn the <em>basics</em> of <a href="https://www.w3schools.com/html/" title="W3Schools HTML tutorial">HTML</a>. 
+      What they are, what they do, and what the code looks like.</p>
+    <p>A basic understanding of these languages will help you know where to start when customizing the look of a web tool you're employing. </p>
+    <p class="big-text">By the end of this unit I hope you'll be able to:</p>
+
+    <div class="container">
+    <div class ="list">
+    <ol>
+      <li>Understand <abbr title="Hyptertext Markup Language">HTML</abbr></li>
+      <li>Be abke to build out a basic shell of a website</li>
+      <li>Recognize the look and feel of HTML</li>
+      <li>Be able to webscrape</li>
+    </ol>
+    </div>
+  </div>
+
+    <p>Dogs</p>
+    <img src="German-Shepherd-dog-Alsatian.jpg" width="450" height="330" alt="Dog">
+    <img src="gettyimages-530330473.jpg" width="375" height="330" alt="Dog">
+      <!-- Note that I set an alt text for this image, always do that!-->
+<hr>
+  <div class="list">
+    <h2>Augmenting our text</h2>
+    <p> Let's look at some things you can do with text:
+        <ul>
+            <li><strong> We can write strong text</strong></li> <!--we can later edit what our strong text looks like in CSS-->
+            <li>We can write <b> bold text</b></li>
+            <li><small>We can write small text</small></li>
+            <li>I can also choose to <em> emphasize certain things</em></li> <!--we can later edit what our emphasized text looks like in CSS-->
+            <li>Or <u>underline things</u> to demonstrate their importance</li>
+            <li style="color: rebeccapurple">I can make my text different colors</li>
+            <li style="color: #000FFF">I can use hex values to do that too</li>
+            <li>dasdaasdasdasdasdasdada</li>
+            <li>adasdsadqwdqwdgrgt</li>
+            </strong></li>
+        </ul>
+    </p>
+  </div>
+
+  <div class = "list-2">
+    <h3>Categories</h3>
+    <ul>
+      <li>eeeeeeee</li>
+      <li>ssssssssssss</li>
+      <li>dddddddddddd</li>
+      <li><a href="www.google.com">Google</a></li>
+
+    </ul>
+  </div>
+
+
+    <h2>Using Tables</h2>
+    <table>
+    <thead>
+      <tr><!--table row-->
+        <th>Name</th> <!--table heading-->
+        <th>Age</th>
+        <th>Major</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Samantha B.</td>
+        <td>22</td>
+        <td>Senior</td>
+      </tr>
+      <tr>
+        <td>Aya W.</td>
+        <td>18</td>
+        <td>Freshman</td>
+      </tr>
+      <tr>
+        <td>Charlie E.</td>
+        <td>19</td>
+        <td>Sophomore</td>
+      </tr>
+    </tbody>
+  </table>
+    <h2>Using iframes</h2>
+    <p> Using <b>iframe</b> we can embed a video or a document </p>
+    <p> Like our syllabus:</p>
+    <iframe src="https://docs.google.com/document/d/1N-vFn9umpxsnC4oryKzdGJR9ClaRI720kjKSTNCaaFg/edit?usp=sharing" height="600" width = "800"></iframe>
+    <p> Or a video: </p>
+    <iframe width="500" height="340" src="https://www.youtube.com/embed/UB1O30fR-EE" title="HTML Crash Course For Absolute Beginners" 
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  
+</br>
+</br>
+</br>
+</br>
+
+<form class="form1">
+  <div class="form-group">
+  <label>First name:</label><br>
+  <input type="text" name="fname"><br>
+  <label>Last name:</label><br>
+  <input type="text" name="lname"><br>
+  <label>Message:</label><br>
+  <input type="text" name="message">
+  <input class="button" type="submit" value="Submit" name="">
+</div>
+</form>
+
+</br>
+</br>
+</br>
+</br>
+
+<div class="block">
+  <h3>Header</h3> 
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Tenetur voluptates, voluptatem vero eligendi error, a, 
+    laborum dignissimos exercitationem obcaecati amet iste 
+    accusantium consectetur incidunt doloribus sunt eum possimus? 
+    Deleniti, tempora?</p>
+    </div>
+<div class="block">
+  <h3>Header</h3> 
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Tenetur voluptates, voluptatem vero eligendi error, a, 
+    laborum dignissimos exercitationem obcaecati amet iste 
+    accusantium consectetur incidunt doloribus sunt eum possimus? 
+    Deleniti, tempora?</p>
+  </div>
+<div class="block">
+  <h3>Header</h3> 
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Tenetur voluptates, voluptatem vero eligendi error, a, 
+    laborum dignissimos exercitationem obcaecati amet iste 
+    accusantium consectetur incidunt doloribus sunt eum possimus? 
+    Deleniti, tempora?</p>
+</div>
+
+<div class="clr"></div>
+
+<div id="main-block">
+  <h3>Header</h3> 
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+  Tenetur voluptates, voluptatem vero eligendi error, a, 
+  laborum dignissimos exercitationem obcaecati amet iste 
+  accusantium consectetur incidunt doloribus sunt eum possimus? 
+  Deleniti, tempora?</p></div>
+</div>
+
+<div id="sidebar">  
+  <h3>Header</h3> 
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+  Tenetur voluptates, voluptatem vero eligendi error, a, 
+  laborum dignissimos exercitationem obcaecati amet iste 
+  accusantium consectetur incidunt doloribus sunt eum possimus? 
+  Deleniti, tempora?</p></div>
+
+
+<a href="class_practice.html">Link to our class page</a>
+
+  </body>
+
+</html>
