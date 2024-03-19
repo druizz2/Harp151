@@ -40,3 +40,9 @@ while page != 4:
         csv_writer.writerow([title, price])
     page+=1
 sheet4 = pd.read_csv("books_scrape.csv")
+
+"""
+The project is moving along well. We are finalizing our decisions on the 
+minigames we want to implement as well as finalizing our user interview
+questions. 
+"""
