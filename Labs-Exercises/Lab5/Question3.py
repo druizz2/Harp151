@@ -15,6 +15,7 @@ csv_writer.writerow(["Title", "Release Date", "Score"])
 
 for i in empty_soup.find_all("div", class_="lister-item mode-detail"):
         title = i.h3.a.text.strip()
+        release_year = i.find(
                 "span",class_="lister-item-year text-muted unbold").text.strip()
         metascore = i.find("span", class_="ipl-rating-star__rating").text.strip()
         csv_writer.writerow([title, release_year, metascore])
